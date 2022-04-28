@@ -24,19 +24,6 @@ function storageform(){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////
 
 
@@ -153,14 +140,6 @@ function checkPassword(pasw,conpasw){
         passcon.textContent= `Passwords don't match`;
     }
 }
-
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////////////////
 signupform.addEventListener("submit", checkeddata);

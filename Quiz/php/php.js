@@ -8,70 +8,104 @@ let useranswer=[];
 
 
 
-let jsquestions = [
+let cssquestions = [
     {
     numb: 1,
-    question: "Which type of JavaScript language is ___?",
-    answer:  "Object-Based",
+    question: "When using the POST method, variables are displayed in the URL:",
+    answer: "False",
     options: [
-      "Object-Oriented",
-      "Object-Based",
-      "Assembly-language",
-      "High-level"
-    ]
+      "False",
+      "True",
+      "just first variable",
+      "just final variable"
+    ] 
+       
   },
     {
     numb: 2,
-    question: "The four basic data types are:",
-    answer: "strings, numbers, Booleans, and nulls",
+    question: "What is the correct way to create a function in PHP ?",
+    answer:  "function myFunction()",
     options: [
-      "strings, numbers, BooBoos, and nulls",
-      "strings, text, Booleans, and nulls",
-      "strings, numbers, Booleans, and nulls",
-      "strings, numbers, Booleans, and zeros"
+      "new_function myFunction()",
+      "function myFunction()",
+      "create myFunction()",
+      "echo Function()"
     ]
   },
     {
     numb: 3,
-    question: " What are the types of Pop up boxes available in JavaScript?",
-    answer: "All of the above",
+    question: "What is the correct way to add 1 to the $count variable?",
+    answer: "$count++;",
     options: [
-      "Prompt",
-      "Alert",
-      "Confirm",
-      "All of the above"
+      "count++; ",
+      "++count",
+      "$count =+1",
+      "$count++;"
     ]
   },
     {
     numb: 4,
-    question: "Which of the following keywords is used to define a variable in Javascript?",
-    answer: "Both A and B",
+    question: "Which of the functions is used to sort an array in descending order?",
+    answer:  "rsort()",
     options: [
-      "var",
-      "let",
-      "Both A and B",
-      "None of the above"
+      "sort()",
+      "asort()",
+      "rsort()",
+      "dsort()"
     ]
   },
     {
     numb: 5,
-    question: "The 'function' and ' var' are known as: ",
-    answer: "Declaration statements",
+    question: "Which one of these variables has an illegal name?",
+    answer:"$my-Var",
     options: [
-      "Keywords",
-      "Data types",
-      "Declaration statements",
-      "Prototypes"
+      "$my-Var",
+      "$my_Var",
+      "$myVar",
+      "$myVar2"
     ]
-  },]
+  },
+  {
+    numb: 6,
+    question: "How do you create a cookie in PHP?",
+    answer:"setcookie()",
+    options: [
+      "createcookie",
+      "startcookie()",
+      "setcookie()",
+      "makecookie()"
+    ]
+  },
+  {
+    numb: 7,
+    question: "How do you create an array in PHP?",
+    answer:"$cars = array('Volvo', 'BMW', 'Toyota');",
+    options: [
+      "$cars = 'Volvo', 'BMW', 'Toyota';",
+      "$cars = array['Volvo', 'BMW', 'Toyota'];",
+      "$cars = array('Volvo', 'BMW', 'Toyota');",
+      "$cars = array = Volvo, BMW, Toyota ;"
+    ]
+  },
+  {
+    numb: 8,
+    question: "What gets printed? $var = 'false'; if ($var) { echo 'true';} else { echo 'false';};",
+    answer:"true",
+    options: [
+      "true",
+      "false",
+      "erorr",
+      "unexpected"
+    ]
+  },
+];
 
 
 ////////////////////////////////////////////////////////
 
 function startquiz(){
-    quebody( jsquestions[0] )
-  
-    
+    quebody( cssquestions[0] )
+     
   }
   
   function quebody( x ){
@@ -89,15 +123,16 @@ function startquiz(){
   ///////////////////////////////////////////////////
   let i=0;
   function nextQue(){
-      if (i==jsquestions.length-1){
+      if (i==cssquestions.length-1){
   
           document.getElementById("next").innerHTML="Submit";
-          window.location="../../result/js/index.html";
+          window.location="../../result/php/index.html"
+          // document.getElementById("next").click.href="../../result/css/index.html";
       }
 
       else{
           i++;
-          quebody(jsquestions[i]);
+          quebody(cssquestions[i]);
 
       }
   
@@ -113,7 +148,7 @@ document.getElementById("next").disabled = false;
   userchoise=this.textContent;
   // console.log(this.textContent);
   choose=1;
-  // if(choose==jsquestions[i].answer)
+  // if(choose==cssquestions[i].answer)
   // {
   // //    label1.style.background="green"
   // // label2.style.background=""
@@ -132,7 +167,7 @@ document.getElementById("next").disabled = false;
 }
 }
 
-let correctanswer=["Object-Based","strings, numbers, Booleans, and nulls",  "All of the above","Both A and B", "Declaration statements"];
+let correctanswer=["False", "function myFunction()", "$count++;", "rsort()", "$my-Var", "setcookie()","$cars = array('Volvo', 'BMW', 'Toyota');" ,"true"];
 /////////////////////////////////////////////////////
 let e=0;
  function next(){
@@ -149,13 +184,13 @@ document.getElementById("next").disabled = true;
   }
 
     if(choose>0){
-        quebody(jsquestions[0]);
+        quebody(cssquestions[0]);
         nextQue();
     }
 
     // console.log(this);
     console.log(useranswer);
-    if(e<jsquestions.length){
+    if(e<cssquestions.length){
 
       ansStorage();
     }
@@ -163,12 +198,10 @@ document.getElementById("next").disabled = true;
     
  }
 
-
-
 /////////////////////////////////////////////////// timer
 
-var sec =120;
-   
+var sec =90;
+    
 var time = setInterval(function() {
   var minutes = parseInt((sec % (60 * 60)) / (60));
   var seconds = parseInt(sec % (60));
@@ -176,7 +209,7 @@ var time = setInterval(function() {
   if (sec < 0) {
     clearInterval(timer);
     
-    window.location="../../result/js/index.html";
+    window.location="../../result/php/index.html"
   }
   sec =  sec - 1;
 }, 1000);
@@ -188,7 +221,6 @@ function ansStorage(){
 
   let answerstorage = JSON.stringify(useranswer);
   localStorage.setItem("Data",answerstorage);
-
 
 }
 

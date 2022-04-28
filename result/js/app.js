@@ -15,7 +15,7 @@ let jquestion=["Which type of JavaScript language is ___?",
 " The 'function' and ' var' are known as:"
 ]
 
-let correctanswer=["Object-Based","strings, numbers, Booleans, and nulls",  "All of the above"," All of the above", "Declaration statements"];
+let correctanswer=["Object-Based","strings, numbers, Booleans, and nulls",  "All of the above","Both A and B", "Declaration statements"];
 let score=0;
 function result(){
 

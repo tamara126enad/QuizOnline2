@@ -34,6 +34,12 @@ function quiztype(){
 
     }
 
+    else if (info3[5]=="PHP"){
+
+        window.location="../Quiz/php/index.html";
+
+    }
+
     
 
 
